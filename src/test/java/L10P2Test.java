@@ -28,10 +28,11 @@ public class L10P2Test {
     JavascriptExecutor js;
     @Before
     public void setUp() {
+        System.setProperty("webdriver.gecko.driver", "/Users/miablo/Downloads/geckodriver");
         driver = new FirefoxDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
-        System.setProperty("webdriver.chrome.driver", "c:/temp/chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "/Users/miablo/Downloads/chromedriver");
         driver = new ChromeDriver();
     }
     @After
