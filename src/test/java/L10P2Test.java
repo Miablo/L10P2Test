@@ -31,6 +31,8 @@ public class L10P2Test {
         driver = new FirefoxDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
+        System.setProperty("webdriver.chrome.driver", "c:/temp/chromedriver.exe");
+        driver = new ChromeDriver();
     }
     @After
     public void tearDown() {
