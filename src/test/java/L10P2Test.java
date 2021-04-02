@@ -22,15 +22,17 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
+
 public class L10P2Test {
     private WebDriver driver;
     private Map<String, Object> vars;
     JavascriptExecutor js;
     @Before
     public void setUp() {
-        System.setProperty("webdriver.gecko.driver", "/Users/miablo/Downloads/geckodriver");
-        System.setProperty("webdriver.chrome.driver", "/Users/miablo/Downloads/chromedriver");
-        driver = new FirefoxDriver();
+       // System.setProperty("webdriver.gecko.driver", "C:/temp/geckodriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:/temp/chromedriver.exe");
+        //driver = new FirefoxDriver();
         driver = new ChromeDriver();
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
@@ -40,16 +42,19 @@ public class L10P2Test {
         driver.quit();
     }
     @Test
-    public void l10P2() {
+    public void l10P2() throws InterruptedException {
         driver.get("https://docs.oracle.com/javase/9/docs/api/overview-summary.html");
+        TimeUnit.SECONDS.sleep(10); // So I can close setting browser down
         driver.manage().window().setSize(new Dimension(680, 761));
         driver.findElement(By.id("search")).sendKeys("java.lang.string");
         driver.findElement(By.id("search")).sendKeys(Keys.ENTER);
+        TimeUnit.SECONDS.sleep(10);
         driver.findElement(By.cssSelector(".rowColor:nth-child(3) > .colConstructorName a")).click();
         driver.findElement(By.id("search")).click();
         driver.findElement(By.id("search")).sendKeys("javax.swing.jframe");
         driver.findElement(By.id("search")).sendKeys(Keys.DOWN);
         driver.findElement(By.id("search")).sendKeys(Keys.ENTER);
+        TimeUnit.SECONDS.sleep(10);
         driver.findElement(By.cssSelector(".altColor:nth-child(4) > .colConstructorName .memberNameLink > a")).click();
     }
 }
