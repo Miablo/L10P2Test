@@ -44,17 +44,22 @@ public class L10P2Test {
     @Test
     public void l10P2() throws InterruptedException {
         driver.get("https://docs.oracle.com/javase/9/docs/api/overview-summary.html");
-        TimeUnit.SECONDS.sleep(10); // So I can close setting browser down
+        TimeUnit.SECONDS.sleep(5); // So I can close setting browser down
         driver.manage().window().setSize(new Dimension(680, 761));
         driver.findElement(By.id("search")).sendKeys("java.lang.string");
+        TimeUnit.SECONDS.sleep(1);
         driver.findElement(By.id("search")).sendKeys(Keys.ENTER);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(5);
         driver.findElement(By.cssSelector(".rowColor:nth-child(3) > .colConstructorName a")).click();
+        TimeUnit.SECONDS.sleep(5);
         driver.findElement(By.id("search")).click();
         driver.findElement(By.id("search")).sendKeys("javax.swing.jframe");
+        TimeUnit.SECONDS.sleep(1);
         driver.findElement(By.id("search")).sendKeys(Keys.DOWN);
+        TimeUnit.SECONDS.sleep(1);
         driver.findElement(By.id("search")).sendKeys(Keys.ENTER);
-        TimeUnit.SECONDS.sleep(10);
+        TimeUnit.SECONDS.sleep(5);
         driver.findElement(By.cssSelector(".altColor:nth-child(4) > .colConstructorName .memberNameLink > a")).click();
+        TimeUnit.SECONDS.sleep(5);
     }
 }
